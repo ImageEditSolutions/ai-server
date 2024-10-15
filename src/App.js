@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 
 // API 호출 함수
 const generateImage = async (prompt) => {
@@ -19,9 +19,8 @@ const generateImage = async (prompt) => {
       }
     );
 
-    const result = await response.blob();  // API는 보통 JSON 응답을 제공
+    const result = await response.blob(); // API는 보통 JSON 응답을 제공
     return result;
-
   } catch (error) {
     console.error("API 호출 오류:", error);
   }
@@ -34,7 +33,7 @@ const App = () => {
 
   const handleGenerate = async () => {
     try {
-      const prompt = "A futuristic city at sunset"; // 테스트용 프롬프트
+      //const prompt = "A futuristic city at sunset"; // 테스트용 프롬프트
       const image = await generateImage(prompt);
       const imageUrl = URL.createObjectURL(image);
       if (imageUrl) {
@@ -50,7 +49,7 @@ const App = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleGenerate();
-  }
+  };
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
